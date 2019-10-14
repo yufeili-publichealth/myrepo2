@@ -50,6 +50,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(gapminder)
 library(nycflights13)
+library(ggplot2)
 gapminder
 ```
 
@@ -122,6 +123,11 @@ gapminder%>%
     a. Create a plot of life expectancy over time where each country has its own line (`group=country`).  
     b. Add a layer to this plot where you use `geom_smooth(method="lm")`
     c. Add a layer to this plot where you use `geom_smooth(method="lm")` but it is colored by continent. 
+```{r}
+gapminder%>%
+ggplot(aes(x=year,y=lifeExp))+geom_line(aes(group=country))+geom_smooth(method="lm",aes(color=continent))
+```
+    
 8. Interpret the graph you created in 7. 
     a. What types of patterns are you seeing? 
     b. Do all countries follow this pattern? 
