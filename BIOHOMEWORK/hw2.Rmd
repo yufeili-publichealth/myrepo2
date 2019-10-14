@@ -138,6 +138,11 @@ ggplot(aes(x=year,y=lifeExp))+geom_line(aes(group=country))+geom_smooth(method="
 ```
     
 9. Create boxplots of life expectancy by continent. Add a layer using `geom_jitter()` to see how the points fall in these boxplots. **Hint: using `alpha=0.04` inside the jitter will lighten the points*
+```{r}
+gapminder%>%
+    ggplot(aes(x=continent,y=lifeExp))+geom_boxplot()+geom_jitter(alpha=0.04)
+```
+
 10. Interpret the plot you made in 9. 
 
 ## PHP 2560 Only
