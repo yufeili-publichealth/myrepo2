@@ -181,12 +181,23 @@ gapminder%>%
                         )
                                           
     ```
-
-
   a. What are some problems with this function? 
   b. How easy is it to follow the logic of this? 
   c. Rewrite this using piping to make it more understandable. 
   d. Does your rewritten command give the same results? 
+```{r}
+#a. It's too long and hard to read.
+#b. It's hard to follow the logica of this code.
+#c
+hourly_delay2 <- 
+flights%>%
+    filter(!is.na(dep_delay))%>%
+    group_by(month, day, year, hour)%>%
+    summarise(delay=mean(dep_delay),n=n())%>%
+    filter(n>10)
+#d. It gives the same results.
+```
+  
   
 
 
