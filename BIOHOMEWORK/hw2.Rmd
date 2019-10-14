@@ -144,6 +144,9 @@ gapminder%>%
 ```
 
 10. Interpret the plot you made in 9. 
+```{r}
+# The average life expectancy is the highest in Oceania, followed by Europe, Americas, Asia and Africa. The consistency of life expectancy across years is the highest in Europe. Asia has the lowest consistency. Europe has the most outliers of data, which is below average.
+```
 
 ## PHP 2560 Only
 
