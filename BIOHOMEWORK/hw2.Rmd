@@ -108,6 +108,16 @@ gapminder%>%
 ```
 
 6. Which three countries have had the most consistent population estimates (i.e. lowest standard deviation) across the years of available data? 
+```{r}
+gapminder%>%
+    group_by(country)%>%
+    mutate(consistency=sd(pop))%>%
+    arrange(consistency)%>%
+    distinct(country)%>%
+    head(3)
+#They are: Sao Tome and Principle, Iceland, and Montenegro
+```
+
 7. Follow the steps below to create a plot about life expectancy.  
     a. Create a plot of life expectancy over time where each country has its own line (`group=country`).  
     b. Add a layer to this plot where you use `geom_smooth(method="lm")`
