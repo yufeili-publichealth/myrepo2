@@ -45,15 +45,11 @@ output:
 
 We will work with the dataset called [gapminder](https://github.com/jennybc/gapminder), this is a cleaned up version from [Gapminder Data](http://www.gapminder.org/data/). Gapminder contains a lot of great data on all of the nations of the world. We first need to install the gapminder package in R. 
 
-```
-install.packages("gapminder")
-```
-
-
-
-```
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(gapminder)
+library(nycflights13)
 gapminder
 ```
 
@@ -67,9 +63,10 @@ Use **dplyr** functions to address the following questions. For some you can jus
 1. How many unique countries are represented per continent?
 ```{r}
     gapminder%>%
-    group_by(continent)%>%
+  group_by(continent)%>%
     distinct(country)%>%
-    count()
+    tally()
+
 ```
 
 2. Which European nation had the lowest GDP per capita in 1997? 
