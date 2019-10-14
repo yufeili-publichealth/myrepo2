@@ -87,6 +87,16 @@ gapminder%>%
 ```
 
 4. What 5 countries have the highest total GDP over all years combined?
+```{r}
+gapminder%>%
+    group_by(country)%>%
+    mutate(GDP=sum(pop*gdpPercap))%>%
+    arrange(desc(GDP))%>%
+    distinct(country)%>%
+    head(5)
+    
+```
+
 5. What countries and years had life expectancies of _at least_ 80 years? *Only output the columns of interest: country, life expectancy and year (in that order).*
 6. Which three countries have had the most consistent population estimates (i.e. lowest standard deviation) across the years of available data? 
 7. Follow the steps below to create a plot about life expectancy.  
