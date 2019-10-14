@@ -75,6 +75,7 @@ gapminder%>%
     filter(continent=='Europe',year=='1997')%>%
     arrange(gdpPercap)%>%
     top_n(-1)
+# Alnania has the lowest GDP per capita in 1997.
     
 ```
 
@@ -94,10 +95,18 @@ gapminder%>%
     arrange(desc(GDP))%>%
     distinct(country)%>%
     head(5)
+#the highest five are: United States, Japan, China, Germany, and United Kingdom
     
 ```
 
 5. What countries and years had life expectancies of _at least_ 80 years? *Only output the columns of interest: country, life expectancy and year (in that order).*
+```{r}
+gapminder%>%
+    group_by(country,year)%>%
+    select(country,lifeExp,year)%>%
+    filter(lifeExp>=80)
+```
+
 6. Which three countries have had the most consistent population estimates (i.e. lowest standard deviation) across the years of available data? 
 7. Follow the steps below to create a plot about life expectancy.  
     a. Create a plot of life expectancy over time where each country has its own line (`group=country`).  
