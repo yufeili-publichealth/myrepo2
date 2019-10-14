@@ -151,6 +151,16 @@ gapminder%>%
 ## PHP 2560 Only
 
 11. Which combinations of continent (besides Asia) and year have the highest average population across all countries? *your output should include all results sorted by highest average population*. With what you already know, this one may stump you. See [this Q&A](http://stackoverflow.com/q/27207963/654296) for how to `ungroup` before `arrange`ing. 
+```{r}
+gapminder%>%
+    group_by(continent,year)%>%
+   filter(continent!='Asia')%>%
+    summarise(mean_pop=mean(pop))%>%
+    ungroup()%>%
+    arrange(desc(mean_pop))%>%
+    head(1)
+# The combination of Americas and 2007 has the highest.
+```
 
 12.  Consider the function below
 
